@@ -1,0 +1,9 @@
+{
+  "name": "recreate",
+  "version": "1.0.0",
+  "description": "Helper library for Redux",
+  "main": "src/index.js",
+  "repository": "https://github.com/MattHsiung/recreate.git",
+  "author": "Matt Hsiung",
+  "license": "MIT"
+}
