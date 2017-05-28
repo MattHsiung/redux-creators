@@ -1,6 +1,6 @@
 {
-  "name": "recreate",
-  "version": "1.0.0",
+  "name": "redux-creators",
+  "version": "1.0.2",
   "description": "Helper library for Redux",
   "main": "src/index.js",
   "repository": "https://github.com/MattHsiung/recreate.git",
