@@ -4966,9 +4966,9 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
-redux-creators@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/redux-creators/-/redux-creators-1.2.0.tgz#ba2e2ae9a3b93f37a7be2b848c1ce5e9048a29a5"
+redux-creators@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/redux-creators/-/redux-creators-2.0.0.tgz#2f05cbc9738e5ca42f2868370e37e92e85c9c9ee"
 
 redux-devtools-extension@^2.13.2:
   version "2.13.2"
