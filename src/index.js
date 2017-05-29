@@ -31,10 +31,21 @@ const asyncCompose = (...promises) => (payload) =>
 		Promise.resolve(payload)
 	);
 
+const asyncAction = (types, promise) => ({
+	types,
+	promise,
+});
+
 const actionCreator = (actionCreators) => (dispatch) =>
 	Object.keys(actionCreators)
 		.reduce((acc, key) => {
-			acc[key] = actionCreatorCreator(actionCreators[key])(dispatch);
+			const actionType = actionCreators[key];
+			const isSync = typeof actionType === 'string';
+			if (isSync) {
+				acc[key] = actionCreatorCreator(actionType)(dispatch);
+			} else {
+				acc[key] = asyncActionCreatorCreator(actionType.types, actionType.promise)(dispatch)
+			}
 			return acc;
 		}, {});
 

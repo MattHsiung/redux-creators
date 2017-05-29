@@ -8,7 +8,6 @@ const increase = (state) => state + 1;
 const decrease = (state) => state - 1;
 const set = (state, value) => value;
 
-//repetitive
 const map = {
 	[INC]: increase,
 	[DEC]: decrease,
