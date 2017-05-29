@@ -33,10 +33,10 @@ const asyncCompose = (...promises) => (payload) =>
 
 const mapActionsToDispatch = (actionCreators) => (dispatch) =>
 	Object.keys(actionCreators)
-		.reduce((acc, key) => ({
-			...acc,
-			[key]: actionCreators[key](dispatch)
-		}), {});
+		.reduce((acc, key) => {
+			acc[key] = actionCreators[key](dispatch);
+			return acc;
+		}, {});
 
 module.exports = {
 	reducerCreator,

@@ -1,12 +1,26 @@
 {
   "name": "redux-creators",
-  "version": "1.2.0",
+  "version": "0.0.0-development",
   "description": "Helper library for Redux",
   "main": "src/index.js",
-  "repository": "https://github.com/MattHsiung/redux-creators.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattHsiung/redux-creators.git"
+  },
   "author": "Matt Hsiung",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^20.0.4"
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "jest": "^20.0.4",
+    "semantic-release": "^6.3.6"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "test": "jest src/index",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
