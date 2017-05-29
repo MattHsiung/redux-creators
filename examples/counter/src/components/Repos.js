@@ -8,10 +8,16 @@ class Repos extends Component {
 	}
 
 	render() {
-		const { repos } = this.props;
+		const { repos, loading, err } = this.props.repos;
 		return (
 			<ul>
-				{repos.map((repo) =>
+				{!loading && err &&
+					<h2>Error getting repos</h2>
+				}
+				{loading &&
+					<h1>Loading...</h1>
+				}
+				{!loading && !err && repos.map((repo) =>
 					<li>
 						<a href={repo.html_url}>
 							{repo.name}

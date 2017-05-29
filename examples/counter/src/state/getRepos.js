@@ -4,17 +4,35 @@ const PENDING = 'FETCHING_REPOS';
 const SUCCESS = 'FETCH_SUCCESS_REPOS';
 const FAIL = 'FETCH_FAIL_REPOS';
 
-const pending = (state) => state + 1;
-const success = (state) => state - 1;
-const fail = (state, value) => value;
+const pending = (state) => ({
+	...state,
+	loading: true,
+	err: null,
+});
+const success = (state, repos) => ({
+	repos,
+	loading: false,
+	err: null,
+});
+const fail = (state, err) => ({
+	...state,
+	loading: false,
+	err,
+});
 
 const map = {
-	[INC]: pending,
-	[DEC]: success,
-	[SET]: fail,
+	[PENDING]: pending,
+	[SUCCESS]: success,
+	[FAIL]: fail,
 };
 
-export default reducerCreator(map, 0);
+const defaultState = {
+	repos: [],
+	loading: false,
+	err: null,
+}
+
+export default reducerCreator(map, defaultState);
 
 export const actions = actionCreator({
 	fetchRepos: asyncAction({

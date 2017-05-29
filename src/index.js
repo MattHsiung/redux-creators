@@ -55,4 +55,5 @@ module.exports = {
 	actionCreatorCreator,
 	asyncActionCreatorCreator,
 	asyncCompose,
+	asyncAction,
 };
