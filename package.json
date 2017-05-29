@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Helper library for Redux",
   "main": "src/index.js",
-  "repository": "https://github.com/MattHsiung/recreate.git",
+  "repository": "https://github.com/MattHsiung/redux-creators.git",
   "author": "Matt Hsiung",
   "license": "MIT",
   "devDependencies": {
