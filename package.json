@@ -5,5 +5,8 @@
   "main": "src/index.js",
   "repository": "https://github.com/MattHsiung/recreate.git",
   "author": "Matt Hsiung",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
 }

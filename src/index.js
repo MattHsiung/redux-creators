@@ -2,16 +2,16 @@ const reducerCreator = (map, defaultValue) =>
 	(state = defaultValue, { type, payload }) =>
 		map[type] ? map[type](state, payload) : state;
 
-const actionCreatorCreator = dispatch =>
-	type =>
+const actionCreatorCreator = type =>
+	dispatch =>
 		payload =>
 			dispatch({
 				type,
 				payload,
 			});
 
-const asyncActionCreatorCreator = dispatch =>
-	({ pending, success, fail }, promise) =>
+const asyncActionCreatorCreator = ({ pending, success, fail }, promise) =>
+	dispatch =>
 		payload => {
 			dispatch(pending);
 			return promise(payload)
