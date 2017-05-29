@@ -31,9 +31,17 @@ const asyncCompose = (...promises) => (payload) =>
 		Promise.resolve(payload)
 	);
 
+const mapActionsToDispatch = (actionCreators) => (dispatch) =>
+	Object.keys(actionCreators)
+		.reduce((acc, key) => ({
+			...acc,
+			[key]: actionCreators[key](dispatch)
+		}), {});
+
 module.exports = {
 	reducerCreator,
 	actionCreatorCreator,
 	asyncActionCreatorCreator,
 	asyncCompose,
+	mapActionsToDispatch,
 };
