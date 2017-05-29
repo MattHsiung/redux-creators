@@ -20,7 +20,9 @@
     "test": "jest src/index",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
