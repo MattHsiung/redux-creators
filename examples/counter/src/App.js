@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import store from './state';
 import Counter from './components/Counter';
+import Repos from './components/Repos';
 
 const App = () => (
 	<Provider
@@ -11,11 +12,11 @@ const App = () => (
 	>
 		<div className="App">
 			<div className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<h2>Welcome to Redux-Creators</h2>
+				<h2>Redux-Creators</h2>
 			</div>
 			<main>
 				<Counter />
+				<Repos />
 			</main>
 		</div>
 	</Provider>

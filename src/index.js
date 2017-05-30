@@ -13,13 +13,12 @@ const actionCreatorCreator = type =>
 const asyncActionCreatorCreator = ({ pending, success, fail }, promise) =>
 	dispatch =>
 		payload => {
-			dispatch(pending);
+			dispatch({ type: pending, payload });
 			return promise(payload)
 				.then((res) => dispatch({
 					type: success,
 					payload: res,
-				}))
-				.catch((err) => dispatch({
+				}), (err) => dispatch({
 					type: fail,
 					payload: err,
 				}));

@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { actions } from '../state/getRepos';
+import ReposList from './ReposList';
+import debounce from 'lodash/debounce';
 
 class Repos extends Component {
-	componentDidMount() {
-		this.props.fetchRepos('matthsiung');
+
+	onChange = (e) => {
+		const { value } = e.target;
+		if (value) this.fetchRepos(value);
 	}
 
+	fetchRepos = debounce(this.props.fetchRepos, 500)
+
 	render() {
-		const { repos, loading, err } = this.props.repos;
+		const { repos, loading, err } = this.props;
 		return (
-			<ul>
-				{!loading && err &&
-					<h2>Error getting repos</h2>
-				}
-				{loading &&
-					<h1>Loading...</h1>
-				}
-				{!loading && !err && repos.map((repo) =>
-					<li>
-						<a href={repo.html_url}>
-							{repo.name}
-						</a>
-					</li>
-				)}
-			</ul>
+			<div>
+				<h1>Find repos</h1>
+				<h4>Enter github username:</h4>
+				<input
+					type="text"
+				 	onChange={this.onChange}
+				/>
+				<ReposList
+					repos={repos}
+					loading={loading}
+					err={err}
+				/>
+			</div>
 		);
 	}
 }
 
-Repos.defaultProps = {
-	repos: [],
-};
-
-const mapState = ({ repos }) => ({ repos });
+const mapState = ({ repos }) => ({ ...repos });
 export default connect(mapState, actions)(Repos);

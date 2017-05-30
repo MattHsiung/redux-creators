@@ -6,7 +6,7 @@ const SET = 'SET_COUNTER';
 
 const increase = (state) => state + 1;
 const decrease = (state) => state - 1;
-const set = (state, value) => value;
+const set = (state, value) => Number(value);
 
 const map = {
 	[INC]: increase,
