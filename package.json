@@ -2,7 +2,7 @@
   "name": "redux-creators",
   "version": "0.0.0-development",
   "description": "Helper library for Redux",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/MattHsiung/redux-creators.git"
@@ -10,19 +10,27 @@
   "author": "Matt Hsiung",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.0.0",
     "jest": "^20.0.4",
+    "rimraf": "^2.6.2",
     "semantic-release": "^6.3.6"
   },
   "scripts": {
     "commit": "git-cz",
     "test": "jest src/index",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "prebuild": "rimraf dist",
+    "build": "babel --copy-files --out-dir dist --ignore *.test.js src"
   },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "babel": {
+    "presets": ["env"]
   }
 }
