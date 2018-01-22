@@ -18,10 +18,13 @@ const asyncActionCreatorCreator = ({ pending, success, fail }, promise) =>
 				.then((res) => dispatch({
 					type: success,
 					payload: res,
-				}), (err) => dispatch({
-					type: fail,
-					payload: err,
-				}));
+				}), (err) => {
+					dispatch({
+						type: fail,
+						payload: err,
+					});
+					throw err;
+				});
 		};
 
 const asyncCompose = (...promises) => (payload) =>
